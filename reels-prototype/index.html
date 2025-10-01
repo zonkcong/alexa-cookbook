@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Reels • iOS Glass Prototype</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <!-- Mock iOS status elements in safe area; dynamic island avoided -->
+      <div class="sys-chrome">
+        <div class="sys-left">
+          <span class="time" aria-hidden="true">2:04</span>
+        </div>
+        <div class="sys-right" aria-hidden="true">
+          <span class="glyph wifi"></span>
+          <span class="glyph cellular"></span>
+          <span class="glyph battery"></span>
+        </div>
+      </div>
+
+      <!-- Top controls: camera icon and progress bar -->
+      <div class="topbar">
+        <div class="left"></div>
+        <div class="center"></div>
+        <button class="icon-btn camera" aria-label="Open camera" disabled></button>
+      </div>
+      <div class="progress"><div class="bar" style="width:0%"></div></div>
+
+      <!-- Reels feed -->
+      <main id="feed" class="feed" aria-label="Reels feed" role="list"></main>
+
+      <!-- Bottom glass navigation -->
+      <nav class="bottom-nav glass" aria-label="Navigation">
+        <button class="nav-item" data-tab="home" aria-label="Home">
+          <span class="nav-icon" data-icon="home"></span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item active" data-tab="reels" aria-label="Reels">
+          <span class="nav-icon" data-icon="reels"></span>
+          <span class="nav-label">Reels</span>
+        </button>
+        <button class="nav-item create" data-tab="create" aria-label="Create">
+          <span class="nav-icon" data-icon="plus"></span>
+          <span class="nav-label">Create</span>
+        </button>
+        <button class="nav-item" data-tab="inbox" aria-label="Inbox">
+          <span class="nav-icon" data-icon="inbox"></span>
+          <span class="nav-label">Inbox</span>
+        </button>
+        <button class="nav-item" data-tab="profile" aria-label="Profile">
+          <span class="nav-icon" data-icon="person"></span>
+          <span class="nav-label">Profile</span>
+        </button>
+        <div class="nav-extras">
+          <button id="themeToggle" class="chip glass" aria-label="Toggle theme">🌙</button>
+          <div class="type-scale glass" role="group" aria-label="Text size">
+            <button id="typeMinus" aria-label="Decrease text size">A−</button>
+            <button id="typePlus" aria-label="Increase text size">A+</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Global overlays -->
+      <div id="sheets" class="sheets" aria-live="polite"></div>
+      <div id="toast" class="toast glass" role="status" aria-live="polite" hidden>
+        <span>Video failed to load.</span>
+        <button id="retryBtn" class="btn" aria-label="Retry video">Retry</button>
+      </div>
+
+      <!-- Profile push view -->
+      <section id="profileView" class="profile-view" aria-label="Profile" hidden></section>
+    </div>
+  </body>
+</html>
