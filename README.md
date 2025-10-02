@@ -1,34 +1,47 @@
+# Facebook Reels Prototype (iOS-style)
 
-### Alexa Skill Building Cookbook
-## Ingredients <a id="title"></a>
+A modern, fluid Facebook Reels interactive prototype built with React (TypeScript), Tailwind CSS, and Framer Motion. Designed to feel like a production-ready iOS experience.
 
+## Quick Start
 
-#### Welcome! <a id="intro"></a>
+```bash
+npm install
+npm run dev
+```
 
+Open the app at the printed URL (usually `http://localhost:5173`).
 
-These folders contain short code samples that show you how to add features to an Alexa skill.
-Let's assume we are a chef, with an idea for a fancy new recipe.
-The recipe will require one or more ingredients to be combined to create the finished product.
-Alexa skills follow the same model. Basic ingredients can be added together to create a robust skill.
-This Cookbook is a desk reference for other Alexa skill design materials.
+## Add Your Videos
 
-#### Table of Contents <a id="toc"></a>
- + [external-calls](external-calls#title) shows how to call APIs and web services
- + [aws](aws#title) shows how to call specific services within AWS
- + [handling-responses](handling-responses#title) shows ways to prepare speech output
+Place 5+ `.mp4` files in `public/videos` with these names:
 
+- `/videos/reel1.mp4`
+- `/videos/reel2.mp4`
+- `/videos/reel3.mp4`
+- `/videos/reel4.mp4`
+- `/videos/reel5.mp4`
 
-#### Before Cooking (pre-requisites)
+You can add more and update the `sampleReels` array in `src/reels/ReelsScreen.tsx`.
 
-Recommended:
-* You should have some experience with scripting or Javascript programming.
-* Review and install developer utilities from the [tools](/tools#title) folder
+## Features
 
-#### After Cooking (testing)
+- Full-screen, swipeable vertical video feed
+- Auto-play when in view, seamless looping
+- Tap to pause/play
+- Double-tap to like with heart animation
+- Vertical swipe navigation with rubber-band effect and springy animations
+- iOS-style UI: top bar, right sidebar actions, glassmorphic overlays
+- Dark gradient readability overlays, rounded UI, blur effects
+- Preloads next/prev video for smoother playback
 
-* Review the [testing](testing#title) folder for various ways you can test your skill during development.
+## Tech Stack
 
-<hr />
+- React + TypeScript
+- Tailwind CSS
+- Framer Motion
+- Vite
 
-Back to the [github.com/alexa](https://github.com/alexa) home page.
+## Notes
 
+- For iOS Safari autoplay: videos are muted by default and use `playsinline`.
+- Adjust spring tuning in `src/reels/ReelsScreen.tsx` for feel.
